@@ -813,7 +813,7 @@ val form : request -> (string * string) list form_result promise
     {{:https://github.com/aantron/dream/tree/master/example/d-form#readme}
     [d-form]}.
 
-    - [Content-Type:] must be [application/x-www-form-urlencoded].
+    - [Content-Type:] must contain [application/x-www-form-urlencoded].
     - The form must have a field named [dream.csrf]. {!Dream.form_tag} adds such
       a field.
     - {!Dream.form} calls {!Dream.verify_csrf_token} to check the token in
