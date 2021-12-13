@@ -86,5 +86,6 @@ let form = form ~now
 let multipart = multipart ~now
 let csrf_token = csrf_token ~now
 let verify_csrf_token = verify_csrf_token ~now
+let form_token request = form_token ~now request
 let form_tag ?method_ ?target ?enctype ?csrf_token ~action request =
   form_tag ~now ?method_ ?target ?enctype ?csrf_token ~action request

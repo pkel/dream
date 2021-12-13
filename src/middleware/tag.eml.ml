@@ -11,6 +11,10 @@ struct
   include Dream__pure.Method
 end
 
+let form_token ~now request =
+  let token = Csrf.csrf_token ~now request in
+  <input name="<%s! Csrf.field_name %>" type="hidden" value="<%s! token %>">
+
 (* TODO Include the path prefix. *)
 let form_tag
     ~now ?method_ ?target ?enctype ?csrf_token ~action request =

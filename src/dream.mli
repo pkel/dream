@@ -1109,6 +1109,26 @@ let render message =
     unquoted attribute values, CSS in [<style>] tags, or literal JavaScript in
     [<script>] tags. *)
 
+val form_token : request -> string
+(** Generates an [<input>] tag with a CSRF token, suitable for use with
+    {!Dream.val-form} and {!Dream.val-multipart}. For example, in a template,
+
+    {[
+      <form method="POST" action="/">
+        <%s! Dream.form_token request %>
+        <input name="my.field">
+      </form>
+    ]}
+
+    expands to
+
+    {[
+      <form method="POST" action="/">
+        <input name="dream.csrf" type="hidden" value="a-token">
+        <input name="my.field">
+      </form>
+    ]} *)
+
 val form_tag :
   ?method_:[< method_ ] ->
   ?target:string ->
